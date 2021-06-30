@@ -23,8 +23,8 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use(cors({})); // cors
 
 app.get("/", (req, res) => {
-  console.log('Hello World!');
-  res.send("Hello World!!");
+  console.log('hello cron job!');
+  res.send("hello cron job!");
 });
 
 // app startup
