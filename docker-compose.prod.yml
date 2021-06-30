@@ -7,4 +7,4 @@ services:
         NODE_ENV: prod # for Dockfile
     environment:
       - NODE_ENV=prod
-    command: yarn start
+    command: yarn prod
