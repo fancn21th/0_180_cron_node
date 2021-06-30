@@ -11,6 +11,20 @@ require("dotenv").config({
 });
 
 /* 
+  cron
+  ref:https://github.com/node-cron/node-cron
+*/
+const cron = require('node-cron');
+
+const task = cron.schedule(process.env.CRON, () =>  {
+  console.log('hello there');
+}, {
+  scheduled: false
+});
+
+task.start(); // cron start
+ 
+/* 
   expressjs
 */
 const express = require("express");
@@ -24,10 +38,20 @@ app.use(cors({})); // cors
 
 app.get("/", (req, res) => {
   console.log('hello cron job!');
-  res.send("hello cron job!");
+  res.send("hello cron job!"); 
 });
 
-// app startup
+// start the cron
+app.post("/start", (req, res) => {
+  res.send("Cron Job Starts!!");
+  task.start(); 
+});
+// stop the cron
+app.post("/stop", (req, res) => {
+  res.send("Cron Job Stops!!");
+  task.stop(); 
+});
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
