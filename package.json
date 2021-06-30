@@ -1,0 +1,19 @@
+{
+  "name": "cronjob",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "cross-env ACTIVE_ENV=dev nodemon index.js",
+    "start:dev": "cross-env ACTIVE_ENV=dev nodemon index.js",
+    "start:staging": "cross-env ACTIVE_ENV=staging nodemon index.js",
+    "start:prod": "cross-env ACTIVE_ENV=prod node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.8"
+  }
+}
