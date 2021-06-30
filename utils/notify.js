@@ -1,9 +1,9 @@
 const request = require("./request");
 
 const notify = (message) => {
-  if (process.env.NOTIFY_PATH) {
+  if (process.env.ROBOT_ONE) {
     request.post({
-      url: process.env.NOTIFY_PATH,
+      url: process.env.ROBOT_ONE,
       data: {
         msgtype: "text",
         text: {

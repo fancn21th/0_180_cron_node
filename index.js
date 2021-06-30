@@ -16,8 +16,11 @@ require("dotenv").config({
 */
 const cron = require('node-cron');
 
+const messages = process.env.MSG && process.env.MSG.split('|')
+
 const task = cron.schedule(process.env.CRON, () =>  {
-  console.log('hello there');
+  console.log('notify done once');
+  notify(messages[Math.floor(Math.random() * messages.length )])
 }, {
   scheduled: false
 });
@@ -29,6 +32,7 @@ task.start(); // cron start
 */
 const express = require("express");
 const cors = require("cors");
+const notify = require('./utils/notify')
 
 const app = express();
 
